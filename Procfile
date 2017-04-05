@@ -1,0 +1,1 @@
+java -jar target/dependency/webapp-runner.jar target/instantorinstantor-0.0.1-SNAPSHOT.war
