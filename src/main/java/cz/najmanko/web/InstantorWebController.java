@@ -43,4 +43,10 @@ public class InstantorWebController {
         
         return stringBuilder.toString();
     }
+
+    @RequestMapping(value = "/responses", method = RequestMethod.GET)
+    @ResponseBody
+    public String responses(@RequestParam Map<String,String> requestParams) throws InstantorException {
+        return readInstantorStatement(requestParams);
+    }
 }
