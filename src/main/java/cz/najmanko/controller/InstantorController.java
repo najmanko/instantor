@@ -67,7 +67,7 @@ public class InstantorController {
         } catch (final InstantorException e) {
             System.out.println("An error has occured!");
             e.printStackTrace();
-            return e.getMessage();
+            return e.getCause().getMessage();
         }
     }
 }
