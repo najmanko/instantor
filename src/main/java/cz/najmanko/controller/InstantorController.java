@@ -16,8 +16,10 @@ import java.util.Map;
 public class InstantorController {
 
     private static final String SOURCE = "test_source";
-
-    private static final String API_KEY = "test_API_key";
+    
+    private static final String API_KEY = "'V)Av'/hW+BH.qXea,s2926E";
+    //FOR TEST:
+//    private static final String API_KEY = "test_API_key";
     
     @Autowired
     private ResponseDao responseDao;

@@ -21,7 +21,7 @@ public class InstantorWebController {
     @Autowired
     private ResponseDao responseDao;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/responses", method = RequestMethod.GET)
     @ResponseBody
     public String readInstantorStatement(@RequestParam Map<String,String> requestParams) throws InstantorException {
         List<Response> responses = responseDao.loadRepositoryList();
