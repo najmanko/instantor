@@ -6,7 +6,7 @@
 	<groupId>cz.najmanko</groupId>
 	<artifactId>instantor</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>instantor</name>
 	<description>POC for instantor</description>
@@ -57,6 +57,7 @@
 			<artifactId>instantor-api</artifactId>
 			<version>0.4.4</version>
 			<scope>system</scope>
+			<classifier>jar-with-dependencies</classifier>
 			<systemPath>${project.basedir}/src/main/resources/instantor-api-0.4.4.jar</systemPath>
 		</dependency>
 	</dependencies>
