@@ -15,6 +15,11 @@ public class Response {
     
     private String json;
     
+    @Column(name = "msg_id")
+    private String msgId;
+    
+    private String action;
+    
     private Date saved;
 
     public Long getId() {
@@ -39,6 +44,22 @@ public class Response {
 
     public void setJson(String json) {
         this.json = json;
+    }
+
+    public String getMsgId() {
+        return msgId;
+    }
+
+    public void setMsgId(String msgId) {
+        this.msgId = msgId;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
     }
 
     public Date getSaved() {

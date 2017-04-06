@@ -28,9 +28,13 @@ public class InstantorWebController {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("<xmp>");
         responses.stream().forEach( e -> {
-            stringBuilder.append("Saved: " + e.getSaved());
-            stringBuilder.append(NEW_LINE);
             stringBuilder.append("Delivered: " + e.getDelivered());
+            stringBuilder.append(NEW_LINE);
+            stringBuilder.append("Action: " + e.getAction());
+            stringBuilder.append(NEW_LINE);
+            stringBuilder.append("Message id: " + e.getMsgId());
+            stringBuilder.append(NEW_LINE);
+            stringBuilder.append("Saved: " + e.getSaved());
             stringBuilder.append(NEW_LINE);
             stringBuilder.append("Response JSON:");
             stringBuilder.append(NEW_LINE);
