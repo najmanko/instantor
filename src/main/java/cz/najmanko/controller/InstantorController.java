@@ -46,8 +46,14 @@ public class InstantorController {
             throw new InstantorException("Instantor source could not be matched!",
                     new IllegalArgumentException(response.getSource()));
         }
+        String json = encryptJson(response);
+
+        responseDao.saveResponseJson(json, response.getTimestamp());
+    }
+
+    private String encryptJson(InstantorResponse response) {
         try {
-            final String json = InstantorParams.loadResponse(
+            return InstantorParams.loadResponse(
                     SOURCE,
                     API_KEY,
                     response.getMsgId(),
@@ -57,10 +63,11 @@ public class InstantorController {
                     response.getTimestamp(),
                     response.getHash());
 
-            responseDao.saveResponseJson(json, response.getTimestamp());
+            
         } catch (final InstantorException e) {
             System.out.println("An error has occured!");
             e.printStackTrace();
+            return e.getMessage();
         }
     }
 }
