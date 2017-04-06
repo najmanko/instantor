@@ -5,21 +5,27 @@ import java.util.Date;
 
 @Entity
 public class Response {
-    
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="response_id_seq")
-    @SequenceGenerator(name="response_id_seq", sequenceName="response_id_seq", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "response_id_seq")
+    @SequenceGenerator(name = "response_id_seq", sequenceName = "response_id_seq", allocationSize = 1)
     private Long id;
-    
+
     private Date delivered;
-    
+
     private String json;
-    
+
     @Column(name = "msg_id")
     private String msgId;
-    
+
     private String action;
+
+    private String encryption;
     
+    private String payload;
+    
+    private String hash;
+
     private Date saved;
 
     public Long getId() {
@@ -60,6 +66,30 @@ public class Response {
 
     public void setAction(String action) {
         this.action = action;
+    }
+
+    public String getEncryption() {
+        return encryption;
+    }
+
+    public void setEncryption(String encryption) {
+        this.encryption = encryption;
+    }
+
+    public String getPayload() {
+        return payload;
+    }
+
+    public void setPayload(String payload) {
+        this.payload = payload;
+    }
+
+    public String getHash() {
+        return hash;
+    }
+
+    public void setHash(String hash) {
+        this.hash = hash;
     }
 
     public Date getSaved() {

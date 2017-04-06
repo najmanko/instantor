@@ -39,6 +39,9 @@ public class ResponseHandler {
         Response response = new Response();
         response.setMsgId(instantorResponse.getMsgId());
         response.setAction(instantorResponse.getAction());
+        response.setEncryption(instantorResponse.getEncryption());
+        response.setPayload(instantorResponse.getPayload());
+        response.setHash(instantorResponse.getHash());
         response.setDelivered(parseDate(instantorResponse.getTimestamp()));
         response.setSaved(new Date());
         response.setJson(json);
