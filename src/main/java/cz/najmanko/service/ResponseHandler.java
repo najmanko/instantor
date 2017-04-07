@@ -8,13 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Component
 public class ResponseHandler {
-
-    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX");
 
     @Autowired
     private ResponseDao responseDao;
@@ -50,8 +47,11 @@ public class ResponseHandler {
     }
 
     private Date parseDate(String date) {
+        if (date == null) {
+            return null;
+        }
         try {
-            return DATE_FORMAT.parse(date);
+            return Decryptor.DATE_FORMAT.parse(date);
         } catch (ParseException e) {
             return null;
         }
