@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class Decryptor {
 
-    public static final String SOURCE = "test_source";
+    public static final String SOURCE = "moneta.cz";
 
     private static final String API_KEY = "'V)Av'/hW+BH.qXea,s2926E";
     //FOR TEST:
