@@ -1,7 +1,7 @@
 package cz.najmanko.controller;
 
 import com.instantor.api.InstantorException;
-import cz.najmanko.service.ResponseHandler;
+import cz.najmanko.service.InstantorHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,12 +15,14 @@ import java.util.Map;
 public class InstantorController {
 
     @Autowired
-    private ResponseHandler responseHandler;
+    private InstantorHandler instantorHandler;
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     @ResponseBody
     public String readInstantorStatement(@RequestParam Map<String, String> requestParams) throws InstantorException {
 
+        instantorHandler.saveRequest(requestParams.toString());
+        
         InstantorResponse instantorResponse = new InstantorResponse();
         instantorResponse.setSource(requestParams.get("source"));
         instantorResponse.setMsgId(requestParams.get("msg_id"));
@@ -30,11 +32,7 @@ public class InstantorController {
         instantorResponse.setTimestamp(requestParams.get("timestamp"));
         instantorResponse.setHash(requestParams.get("hash"));
 
-        responseHandler.decryptAndPersistResponse(instantorResponse);
+        instantorHandler.decryptAndPersistResponse(instantorResponse);
         return "OK: " + instantorResponse.getMsgId();
     }
-
-
-    
-    
 }

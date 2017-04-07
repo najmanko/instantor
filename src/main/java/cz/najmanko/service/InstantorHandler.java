@@ -3,6 +3,7 @@ package cz.najmanko.service;
 import com.instantor.api.InstantorException;
 import cz.najmanko.controller.InstantorResponse;
 import cz.najmanko.dao.ResponseDao;
+import cz.najmanko.model.Request;
 import cz.najmanko.model.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,7 +12,7 @@ import java.text.ParseException;
 import java.util.Date;
 
 @Component
-public class ResponseHandler {
+public class InstantorHandler {
 
     @Autowired
     private ResponseDao responseDao;
@@ -27,6 +28,13 @@ public class ResponseHandler {
         Response response = generateResponse(instantorResponse);
 
         responseDao.saveResponseJson(response);
+    }
+
+    public void saveRequest(String instantorRequest) throws InstantorException {
+        Request request = new Request();
+        request.setRequest(instantorRequest);
+
+        responseDao.saveRequest(request);
     }
 
     private Response generateResponse(InstantorResponse instantorResponse) {
